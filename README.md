@@ -1,4 +1,4 @@
-# NBA Analytics MCP Server
+# NBA Analytics MCP Server (tech stack/example from production/private version)
 
 A [Model Context Protocol](https://modelcontextprotocol.io) server that exposes
 the 2025-26 NBA daily leaders dataset (~28k player-game rows, all 30 teams) to
