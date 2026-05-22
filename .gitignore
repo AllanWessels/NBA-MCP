@@ -5,3 +5,4 @@ __pycache__/
 .uv/
 uv.lock
 .DS_Store
+.pytest_cache/
