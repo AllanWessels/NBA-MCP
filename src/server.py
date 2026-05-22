@@ -13,6 +13,7 @@ Design notes worth talking about in interviews:
 
 import os
 from contextlib import asynccontextmanager
+from datetime import date
 from typing import Any
 
 import asyncpg
@@ -114,6 +115,11 @@ async def top_scorers(
     to players with 3+ games in the window so a single 50-point outburst
     doesn't top the list.
     """
+    try:
+        start = date.fromisoformat(start_date)
+        end = date.fromisoformat(end_date)
+    except ValueError as e:
+        return [{"error": f"start_date and end_date must be ISO YYYY-MM-DD: {e}"}]
     async with _pool.acquire() as conn:
         rows = await conn.fetch(
             """
@@ -128,7 +134,7 @@ async def top_scorers(
             ORDER BY avg(pts) DESC
             LIMIT $3
             """,
-            start_date, end_date, min(limit, 50),
+            start, end, min(limit, 50),
         )
     return [dict(r) | {"ppg": float(r["ppg"])} for r in rows]
 
