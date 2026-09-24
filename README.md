@@ -2,7 +2,7 @@
 
 A [Model Context Protocol](https://modelcontextprotocol.io) server that exposes
 the 2025-26 NBA daily leaders dataset (~28k player-game rows, all 30 teams) to
-MCP-compatible AI clients — Claude Desktop, Cursor, MCP Inspector, and any
+MCP-compatible AI clients — Claude Desktop , Cursor, MCP Inspector, and any
 custom MCP host.
 
 Built with the official Python MCP SDK (`mcp[cli]` / FastMCP), `asyncpg` for a
